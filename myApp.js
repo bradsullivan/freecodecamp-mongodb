@@ -93,6 +93,12 @@ var createAndSavePerson = function(done) {
     else done(null, data);
   });
 };
+/*
+The save function's callback will accept 2 arguments :
+The error
+The document that was saved
+Maybe also the number of rows affected? Or maybe only in older Mongoos versions.
+*/
 
 /** 4) Create many People with `Model.create()` */
 

@@ -128,9 +128,12 @@ var createManyPeople = function(arrayOfPeople, done) {
 // Use the function argument `personName` as search key.
 
 var findPeopleByName = function(personName, done) {
-  
-  done(null/*, data*/);
-
+// Tank.find({ size: 'small' }).where('createdDate').gt(oneYearAgo).exec(callback);
+  Person.find({name: personName}, (err, data) => {
+    if (err) done(err);
+    else done(null,data)
+  });
+  // Person.find({name: personName}, done);
 };
 
 /** 6) Use `Model.findOne()` */

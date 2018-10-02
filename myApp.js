@@ -131,7 +131,7 @@ var findPeopleByName = function(personName, done) {
 // Tank.find({ size: 'small' }).where('createdDate').gt(oneYearAgo).exec(callback);
   Person.find({name: personName}, (err, data) => {
     if (err) done(err);
-    else done(null,data)
+    else done(null,data);
   });
   // Person.find({name: personName}, done);
 };
@@ -146,9 +146,11 @@ var findPeopleByName = function(personName, done) {
 // argument `food` as search key
 
 var findOneByFood = function(food, done) {
-
-  done(null/*, data*/);
-  
+  Person.findOne({favoriteFoods: food}, (err, data) => {
+  //Person.findOne({favoriteFoods: [food]}, (err, data) => {
+      if (err) done(err);
+      else done(null, data);
+    });
 };
 
 /** 7) Use `Model.findById()` */
